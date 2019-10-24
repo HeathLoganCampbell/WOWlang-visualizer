@@ -3,8 +3,13 @@
 <head>
     <title>WOWlang Visualizer</title>
     <link rel="stylesheet" href="css/index.css" />
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 
+    <script src="js/interpreter.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -34,16 +39,29 @@
         <div class="col-sm-1">
           One of three columns
         </div>
-        
+
       </div>
     </div>
 
     <div>
         <textarea id="editor" rows="4" cols="50">
-
+WOW WOW WOW WOW WOW WOW WOW WOW WOw woW WOW WOW WOW WOW WOW WOW 
+WOW WOW WOW woW WOW WOW WOW WOW WOW WOW WOW WOW WOW WOW WOW WOW 
+WOW woW WOW WOW WOW WOW woW WOW WOW WOW WOW WOW WOW WOW WOW WOW 
+WOW WOW Wow Wow Wow Wow wow wOW woW WoW woW woow wow wow wow WoW 
+w0w WOOW WOW WOW WOW WOW WoW WoW WOW WOW WOW woow WoW woW WoW woW 
+wow WoW woW WOOW WoW WOW WOW WOW WOW WOW WOW WOW WOW WoW woW WOOW 
+WOW WOW WOW WoW woW WOOW wow wow wow WoW wow wow wow wow wow wow 
+wow wow WoW Wow Wow Wow Wow WOW WoW
         </textarea>
     </div>
 
+    <button id="interpret" type="button">Click Me!</button>
 
+    <div>
+        <textarea id="output" rows="4" cols="50">
+
+        </textarea>
+    </div>
 </body>
 </html>

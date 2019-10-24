@@ -1,3 +1,10 @@
+
+window.onload = function(){ 
+    // your code 
+document.getElementById('interpret').onclick = function() {
+   interpret(document.getElementById('editor').value)
+ };
+
 function interpret(s){
 
 var mem = [0];
@@ -34,15 +41,17 @@ for (var i = 0; i <s .length; i++) {
           //input from std?
         }
         else if (s.charAt(i) == 'W') {
-          brac_open_pos.push(prog_pos + 1);
+          if (mem[mem_pos]!=0){
+            i = brac_open_pos[brac_open_pos.length-1];
+          }
         }
         else {
-          prog_pos--;
+          i--;
         }
       }
       else if (s.charAt(i) == '0'){
         if (s.charAt(++i) == 'w') {
-          *mem_pos = 0;
+          mem[mem_pos] = 0;
         }
         else {
           i--;
@@ -58,24 +67,26 @@ for (var i = 0; i <s .length; i++) {
           mem_pos--;
         }
         else if (s.charAt(i) == 'W') {
-          std::cout << (char)(*mem_pos);
+          document.getElementById("output").value+=String.fromCharCode(mem[mem_pos]);
         }
         else {
-          prog_pos--;
+          i--;
         }
       }
       else if (s.charAt(i) == 'O') {
         if (s.charAt(++i) == 'w') {
-          if (*mem_pos == 0) {
-            prog_pos = input.begin() + input.find("wOW", ++prog_pos - input.begin());
+          brac_open_pos.push(i + 1);
+          if (mem[mem_pos] == 0) {
+            i = i + 1 + s.substring(i+1).indexof("wOW");
+            brac_open_pos.pop();
           }
         }
         else if (s.charAt(i) == 'W') {
-          (*mem_pos)++;
+          mem[mem_pos]++;
         }
         else if (s.charAt(i) == 'O') {
           if (s.charAt(++i) == 'W') {
-            *mem_pos += reg;
+            mem[mem_pos] += reg;
           }
           else {
             i--;
@@ -94,3 +105,4 @@ for (var i = 0; i <s .length; i++) {
 
 
 }
+};
