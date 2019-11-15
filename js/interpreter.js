@@ -13,6 +13,8 @@ $(document).ready(function () {
     var mem_pos = 0;
     var reg = 0;
     var brac_open_pos = [];
+    var input = $("#stdin").val().split(" ");
+    var current_input_pos = 0;
 
     var i = 0;
     while (i < s.length - 2) {
@@ -33,6 +35,8 @@ $(document).ready(function () {
           }
           break;
         case "wOw":
+          mem[mem_pos]=parseInt(input[current_input_pos++]);
+          processLine(mem,mem_pos);
           break;
         case "wOW":
           if (mem[mem_pos] != 0) {
