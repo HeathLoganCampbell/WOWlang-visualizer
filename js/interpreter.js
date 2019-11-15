@@ -13,7 +13,7 @@ $(document).ready(function() {
 
     var i = 0;
     while (i<s.length-2){
-      await sleep(10);
+      await sleep($("#delay").val()*10);
       i = i + 3;
       switch(s.substring(i - 3,i)){
         case "wow":
@@ -85,17 +85,31 @@ $(document).ready(function() {
 
     var startPos = Math.floor(mem_pos/8) * 8;
     var output = "";
-
+    var display ="";
     for (var i=startPos; i<startPos+8; i++ ){
+      if (i == mem_pos){
+        output += " <span class=\"current-memory\"> "
+      }
       if (i > mem.length-1){
-        output += "0 ";
+        output += "00 ";
+        display += ".";
       }
       else{
-        output += mem[i] + " ";
+        output += mem[i].toString(16).toUpperCase().padStart(2,'0') + " ";
+        if ((mem[i]>=32)&&(mem[i]<127)){
+          display += String.fromCharCode(mem[i]);
+        }
+        else{
+          display += ".";
+        }
+      }
+      if (i==mem_pos){
+        output += " </span> "
       }
     }
+    output += " " + display;
 
-    $("#line" + Math.floor(mem_pos/8)).text(output);
+    $("#line" + Math.floor(mem_pos/8)).html(output);
   }
   function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));

@@ -6,3 +6,11 @@
  font-size: 1em;
  font-family: "Courier New";
 }
+
+#memory-container{
+	font-family: monospace;
+}
+
+.current-memory{
+	color: red;
+}
