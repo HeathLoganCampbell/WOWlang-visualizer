@@ -89,7 +89,7 @@ $(document).ready(function() {
     for (var i=startPos; i<startPos+8; i++ ){
       if (i == mem_pos){
         output += " <span class=\"current-memory\"> "
-        display += " <span class=\"current-memory\"> "
+        display += "<span class=\"current-memory\">"
       }
       if (i > mem.length-1){
         output += "00 ";
@@ -106,7 +106,7 @@ $(document).ready(function() {
       }
       if (i==mem_pos){
         output += " </span> "
-        display += " </span> "
+        display += "</span>"
       }
     }
     output += " " + display;
