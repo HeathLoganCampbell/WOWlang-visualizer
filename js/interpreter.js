@@ -18,6 +18,7 @@ $(document).ready(function() {
       switch(s.substring(i - 3,i)){
         case "wow":
           mem[mem_pos]--;
+          processLine(mem,mem_pos);
           break;
         case "woW":
           if (mem_pos == mem.length - 1) {
